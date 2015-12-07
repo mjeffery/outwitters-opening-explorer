@@ -1,13 +1,22 @@
 extends layout
 
+block js
+  script(src="/components/jquery/dist/jquery.min.js")
+  script(type="text/javascript", src="/js/changeReplay.js")
+  script(src="/js/replay-links.js")
+
 block content
-  a(href="/explore/#{start_code_id}") Back
-  ul.replay-list
-    for replay in replays
-      li.replay
-        a(href="http://osn.codepenguin.com/replays/view/#{replay.replay_id}") View
-        | 
-        span.replay-name
-          span(class=replay.p1_win ? 'winner' : '') #{replay.p1_name}
-          |  vs. 
-          span(class=replay.p2_win ? 'winner' : '') #{replay.p2_name}
+  .replay-side-bar
+    a(href="/explore/#{start_code_id}") Back
+    .replay-scroller
+      ul.replay-list
+        for replay in replays
+          li.replay
+            a.replay-link(href="#", data-replay-id=replay.replay_id, data-frame=replay.end_frame) View
+            | 
+            span.replay-name
+              span(class=replay.p1_win ? 'winner' : '') #{replay.p1_name}
+              |  vs. 
+              span(class=replay.p2_win ? 'winner' : '') #{replay.p2_name}
+  .replay-viewer
+    iframe

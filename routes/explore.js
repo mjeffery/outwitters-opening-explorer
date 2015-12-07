@@ -1,7 +1,8 @@
-var express = require('express')
+var _ = require('lodash');
+var express = require('express');
 var router = express.Router();
 
-var find_replay = 'select replay_id from turns join games using (game_id) where start_raw_code_id=? limit 1';
+var find_replay = 'select start_frame, replay_id from turns join games using (game_id) where start_raw_code_id=? limit 1';
 
 var get_end_states =
 	'select end_raw_code_id as next_code_id, ' +
@@ -18,7 +19,7 @@ router.param('start_code_id', function(req, res, next, code_id) {
 		if(err) return next(err);
 		conn.queryAsync(find_replay, [code_id])
 			.then(function(results) {
-				req.replay_id = results[0].replay_id;
+				_.extend(req, results[0]);
 				return conn.queryAsync(get_end_states, [code_id]); 
 			})
 			.then(function(results) {
@@ -34,6 +35,7 @@ router.get('/:start_code_id', function(req, res) {
 		code_id: req.params.start_code_id,
 		timestamp: (new Date()).getTime(),
 		replay_id: req.replay_id,
+		start_frame: req.start_frame,
 		end_states: req.end_states
 	});
 });

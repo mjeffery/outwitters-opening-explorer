@@ -8,6 +8,8 @@ a {
 
 .replay-viewer {
   display: inline-block;
+  width: 880px;
+  height: 900px;
 }
 
 .replay-viewer iframe {
@@ -30,8 +32,9 @@ a {
 }
 
 .nav {
-	padding: 10px;
-	height: 40px;
+	padding-top: none;
+	height: 30px;
+	list-style: none;
 }
 
 .end-state-content {
@@ -40,6 +43,10 @@ a {
 
 .end-state {
 	border-bottom: 1px black;
+}
+
+.end-state.viewing {
+	background-color: lightgrey;
 }
 
 .win-percent {
@@ -66,3 +73,14 @@ a {
 	font-weight: bold;
 }
 
+.replay-side-bar {
+	padding: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.replay-scroller {
+  height: 760px;
+  overflow: scroll;
+  overflow-x: hidden;
+}

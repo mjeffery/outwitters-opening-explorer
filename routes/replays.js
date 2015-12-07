@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var get_replays = 
-	'select replay_id, p1_win, p1_name, p2_win, p2_name from turns ' +
+	'select end_frame, replay_id, p1_win, p1_name, p2_win, p2_name from turns ' +
 	'join games using (game_id) ' +
 	'where end_raw_code_id=?';
 

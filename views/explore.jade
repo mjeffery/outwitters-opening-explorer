@@ -1,17 +1,24 @@
 extends layout
 
+block js
+  script(type="text/javascript", src="/components/jquery/dist/jquery.min.js")
+  script(type="text/javascript", src="/js/changeReplay.js")
+  script(type="text/javascript", src="/js/view-links.js")
+
 block content
   .replay-viewer
-    iframe(scrolling="no", src="http://osn.codepenguin.com/replays/view/#{replay_id}?#{timestamp}")
+    iframe(scrolling="no", src="http://osn.codepenguin.com/replays/view/#{replay_id}?#{timestamp + '#' + start_frame}")
   .side-bar
     .nav
-      a.btn(href="/") Change Map
+        a.btn(href="/") Change Map
+        |  | 
+        a.btn(href="javascript:location.reload()") Starting State
     .end-state-list
       .end-state-content
         for state in end_states
           .end-state
             .end-state-btns
-              a.btn(href="javascript:void(0)") View
+              a.btn.view-link(href="#", data-state-id=state.next_code_id) View
               |  | 
               a.btn(href="/explore/#{state.next_code_id}") Explore
               |  |  
@@ -23,3 +30,4 @@ block content
               span.win-percent win%: 
               | #{state.win_percent}
             hr
+    
