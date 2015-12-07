@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  a(href="/explore/#{start_code_id}") Back
+  ul.replay-list
+    for replay in replays
+      li.replay
+        a(href="http://osn.codepenguin.com/replays/view/#{replay.replay_id}") View
+        | 
+        span.replay-name
+          span(class=replay.p1_win ? 'winner' : '') #{replay.p1_name}
+          |  vs. 
+          span(class=replay.p2_win ? 'winner' : '') #{replay.p2_name}

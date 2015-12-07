@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .replay-viewer
+    iframe(scrolling="no", src="http://osn.codepenguin.com/replays/view/#{replay_id}?#{timestamp}")
+  .side-bar
+    .nav
+      a.btn(href="/") Change Map
+    .end-state-list
+      .end-state-content
+        for state in end_states
+          .end-state
+            .end-state-btns
+              a.btn(href="javascript:void(0)") View
+              |  | 
+              a.btn(href="/explore/#{state.next_code_id}") Explore
+              |  |  
+              a.btn(href="/replays/#{state.next_code_id}?from=#{code_id}") Replays
+            p
+              span.popularity  popularity: 
+              | #{state.total_games}
+            p 
+              span.win-percent win%: 
+              | #{state.win_percent}
+            hr

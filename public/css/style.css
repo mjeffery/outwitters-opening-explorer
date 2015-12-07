@@ -1,0 +1,68 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.replay-viewer {
+  display: inline-block;
+}
+
+.replay-viewer iframe {
+  width: 880px;
+  height: 900px;
+  border: 0 
+}
+
+.side-bar {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.end-state-list {
+  
+  height: 760px;
+  width: 200px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.nav {
+	padding: 10px;
+	height: 40px;
+}
+
+.end-state-content {
+	padding: 10px;
+}
+
+.end-state {
+	border-bottom: 1px black;
+}
+
+.win-percent {
+  font-weight: bold;
+}
+
+.popularity {
+  font-weight: bold;
+}
+
+.replay-list {
+	list-style: none;
+}
+
+.replay-list li {
+	padding: 3px;
+}
+
+.replay-name {
+	font-size: larger;
+}
+
+.replay-list .winner {
+	font-weight: bold;
+}
+
