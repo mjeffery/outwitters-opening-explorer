@@ -5,19 +5,19 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   res.render('index', { 
-	  title: 'Express',
+	  title: 'Outwitters Opening Explorer',
 	  maps: [
-		{ name: "Long Nine", code: 45 },
-		{ name: "Foundry", code: 549 },
-		{ name: "Reaper", code: 425 },
-		{ name: "Glitch", code: 177 },
-		{ name: "Thorn Gulley", code: 929 },
-		{ name: "Sharkfood Island", code: 1 },
+		{ name: "Long Nine", code: 45 }, //9
+		{ name: "Foundry", code: 546 }, //3
+		{ name: "Reaper", code: 423 }, //13
+		{ name: "Glitch", code: 176 }, //4
+		{ name: "Thorn Gulley", code: 924 }, //12
+		{ name: "Sharkfood Island", code: 1 }, //10
 		{ name: "Sweetie Plains", code: 34 },   //6, 
 		{ name: "Peekaboo", code: 56 }, //7
-		{ name: "Skull Duggery", code: 621 }, //14
-		{ name: "War Garden", code: 488 }, //15
-		{ name: "Sweet Tooth", code: 959 } //16
+		{ name: "War Garden", code: 485 }, //15
+		{ name: "Skull Duggery", code: 617 }, //14
+		{ name: "Sweet Tooth", code: 954 } //16
       ]
   });
 });
